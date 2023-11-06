@@ -27,11 +27,19 @@ public class SqlSchemaBuilder
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_rules_tables.sql");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_entity_rules.sql");
 
+        CreateSchemaObject("media");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.media.create_media_tables.sql");
+
+
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.samples.insert_sample_data_001.sql");
     }
 
     public void DropSchema()
     {
+
+        DropTableIfExists("media", "category");
+        DropSchemaObjectIfExists("media");
+
         DropTableIfExists("rules", "entity_rules");
         DropTableIfExists("rules", "rule");
         DropTableIfExists("rules", "rule_type");
