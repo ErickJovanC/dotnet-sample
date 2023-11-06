@@ -14,12 +14,21 @@ public class SqlSchemaBuilder
 
     public void CreateSchema()
     {
-        RunLocalStoredCommands("WebApp.Scripts.create_schema.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.data.create_schema.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.data.create_schema_version.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.entities.create_entities_schema.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.entities.create_entities_tables.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_rules_schema.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_rules_tables.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_entity_rules.sql");
     }
-
     public void DropSchema()
     {
-        RunLocalStoredCommands("WebApp.Scripts.drop_schema.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.drop_rules_tables.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.drop_rules_schema.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.entities.drop_entities_table.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.entities.drop_entities_schema.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.data.drop_schema.sql");
     }
 
     protected void RunLocalStoredCommands(string resourceName) {

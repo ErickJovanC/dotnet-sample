@@ -1,0 +1,1 @@
+IF EXISTS (SELECT * FROM sys.schemas WHERE name = N'entities') BEGIN DROP SCHEMA [entities] END;
