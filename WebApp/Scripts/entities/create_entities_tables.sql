@@ -17,11 +17,3 @@ REFERENCES [entities].[entity_type] ([entity_type_id]);
 
 ALTER TABLE [entities].[entity] CHECK CONSTRAINT [fk_entity_entity_type];
 
-INSERT INTO [entities].[entity_type] ([name], [description])
-VALUES ('Tienda', 'Tienda Comercial');
-
-INSERT INTO [entities].[entity_type] ([name], [description])
-VALUES ('Medio', 'Medio de publicidad');
-
-INSERT INTO [entities].[entity_type] ([name], [description])
-VALUES ('Categoria', 'Categoria asiganada al publicitario');

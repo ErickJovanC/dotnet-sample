@@ -1,1 +1,0 @@
-CREATE SCHEMA [entities] AUTHORIZATION [dbo];
