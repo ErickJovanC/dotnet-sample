@@ -11,14 +11,32 @@ VALUES ('Categoria', N'Categoria asiganada al publicitario');
 
 
 INSERT INTO [rules].[rule_type] ([rule_name], [description])
-VALUES ('Categor�a', N'Limitado por categoria del producto');
+VALUES ('Categoria', N'Limitado por categoria del producto');
 
 INSERT INTO [rules].[rule_type] ([rule_name], [description])
 VALUES ('Tiempo', N'Bloqueado por uso');
 
+-- Regions
+SET IDENTITY_INSERT [regions].[region] ON;
+INSERT INTO [regions].[region] ([region_id], [name], [description])
+VALUES (1, 'Mor', 'Estado de Morelos');
+SET IDENTITY_INSERT [regions].[region] OFF;
 
+-- Store Formats
+SET IDENTITY_INSERT [stores].[store_format] ON;
+INSERT INTO [stores].[store_format] ([store_format_id], [name], [description])
+VALUES (1, 'SC', 'Super Center');
+INSERT INTO [stores].[store_format] ([store_format_id], [name], [description])
+VALUES (2, 'BA', 'Bodega Aurrera');
+SET IDENTITY_INSERT [stores].[store_format] OFF;
 
-
+-- Stores
+SET IDENTITY_INSERT [stores].[store] ON;
+INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [name], [location])
+VALUES (1, 1, 1, 'Domingo Diez', 'Cuernavaca');
+INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [name], [location])
+VALUES (2, 2, 1, 'Walmart Atrios', 'Cuautla');
+SET IDENTITY_INSERT [stores].[store] OFF;
 
 
 
