@@ -1,11 +1,25 @@
 CREATE TABLE [media].[category] (
-     [category_id]      INT              NOT NULL    identity(1,1)
+     [category_id]      INT              NOT NULL   identity(1,1)
     ,[name]             NVARCHAR(50)     NOT NULL
     ,[description]      NVARCHAR(256)        NULL
-    ,[active]           BIT              NOT NULL DEFAULT(1)
+    ,[active]           BIT              NOT NULL   DEFAULT(1)
     ,CONSTRAINT [pk_category] PRIMARY KEY CLUSTERED ( [category_id] ASC )
 );
 
+CREATE TABLE [media].[media] (
+     [media_id]         INT             NOT NULL    identity(1,1)
+    ,[category_id]      INT             NOT NULL
+    ,[name]             NVARCHAR(50)    NOT NULL
+    ,[description]      NVARCHAR(256)       NULL
+    ,[active]           BIT             NOT NULL DEFAULT(1)
+    ,CONSTRAINT [pk_media] PRIMARY KEY CLUSTERED ( [media_id] ASC )
+);
+
+
+ALTER TABLE [media].[media] WITH CHECK ADD CONSTRAINT [fk_media_category] FOREIGN KEY([category_id])
+REFERENCES [media].[category] ([category_id]);
+
+ALTER TABLE [media].[media] CHECK CONSTRAINT [fk_media_category];
 ---- ----------------------------
 ---- Table structure for categoria
 ---- ----------------------------

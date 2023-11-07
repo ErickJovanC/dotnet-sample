@@ -29,6 +29,22 @@ public class SqlSchemaBuilder
 
         CreateSchemaObject("media");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.media.create_media_tables.sql");
+        
+        CreateSchemaObject("customers");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.customers.create_customer_tables.sql");
+
+        CreateSchemaObject("regions");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.regions.create_region_tables.sql");
+
+        CreateSchemaObject("stores");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.stores.create_store_format_tables.sql");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.stores.create_store_tables.sql");
+
+        CreateSchemaObject("requests");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.requests.create_request_tables.sql");
+
+        CreateSchemaObject("quotations");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.quotations.create_quotation_table.sql");
 
 
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.samples.insert_sample_data_001.sql");
@@ -37,6 +53,25 @@ public class SqlSchemaBuilder
     public void DropSchema()
     {
 
+        DropTableIfExists("quotations", "quotation");
+        DropTableIfExists("quotations", "quotation_request");
+        DropSchemaObjectIfExists("quotations");
+
+        DropTableIfExists("requests", "request_store");
+        DropTableIfExists("requests", "request");
+        DropSchemaObjectIfExists("requests");
+
+        DropTableIfExists("stores", "store");
+        DropTableIfExists("stores", "store_format");
+        DropSchemaObjectIfExists("stores");
+
+        DropTableIfExists("regions", "region");
+        DropSchemaObjectIfExists("regions");
+
+        DropTableIfExists("customers", "customer");
+        DropSchemaObjectIfExists("customers");
+
+        DropTableIfExists("media", "media");
         DropTableIfExists("media", "category");
         DropSchemaObjectIfExists("media");
 
@@ -354,6 +389,7 @@ public class SqlSchemaBuilder
             throw new ArgumentNullException(nameof(resourceName));
         TextReader textReader = new StreamReader(stream);
         RunLocalStoredCommands(textReader);
+        System.Console.WriteLine($"Success Schema {resourceName}");
     }
 
     public void RunLocalStoredCommands(TextReader textReader)
