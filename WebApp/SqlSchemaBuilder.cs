@@ -20,10 +20,10 @@ public class SqlSchemaBuilder
         
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.data.create_schema_version.sql");
 
-        CreateSchemaObject("entities");        
+        CreateSchemaObject("entities");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.entities.create_entities_tables.sql");
 
-        CreateSchemaObject("rules");        
+        CreateSchemaObject("rules");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_rules_tables.sql");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_entity_rules.sql");
 
@@ -46,13 +46,14 @@ public class SqlSchemaBuilder
         CreateSchemaObject("quotations");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.quotations.create_quotation_table.sql");
 
+        CreateSchemaObject("states");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.states.create_state_tables.sql");
 
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.samples.insert_sample_data_001.sql");
     }
 
     public void DropSchema()
     {
-
         DropTableIfExists("quotations", "quotation");
         DropTableIfExists("quotations", "quotation_request");
         DropSchemaObjectIfExists("quotations");
@@ -83,6 +84,9 @@ public class SqlSchemaBuilder
         DropTableIfExists("entities", "entity");
         DropTableIfExists("entities", "entity_type");
         DropSchemaObjectIfExists("entities");
+
+        DropTableIfExists("states", "state");
+        DropSchemaObjectIfExists("states");
 
         DropTableIfExists("data", "schema_version");
         DropSchemaObjectIfExists("data");
