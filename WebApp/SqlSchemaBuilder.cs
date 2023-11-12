@@ -36,6 +36,9 @@ public class SqlSchemaBuilder
         CreateSchemaObject("regions");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.regions.create_region_tables.sql");
 
+        CreateSchemaObject("states");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.states.create_state_tables.sql");
+
         CreateSchemaObject("stores");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.stores.create_store_format_tables.sql");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.stores.create_store_tables.sql");
@@ -45,9 +48,6 @@ public class SqlSchemaBuilder
 
         CreateSchemaObject("quotations");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.quotations.create_quotation_table.sql");
-
-        CreateSchemaObject("states");
-        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.states.create_state_tables.sql");
 
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.samples.insert_sample_data_001.sql");
     }

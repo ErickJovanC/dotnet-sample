@@ -2,6 +2,7 @@ CREATE TABLE [stores].[store] (
     [store_id]          INT             NOT NULL    identity(1,1)
     , [store_format_id] INT             NOT NULL
     , [region_id]       INT             NOT NULL
+    , [state_id]        INT             NOT NULL
     , [name]            NVARCHAR(50)    NOT NULL
     , [location]        NVARCHAR(256)       NULL
     ,CONSTRAINT [pk_store] PRIMARY KEY CLUSTERED ( [store_id] ASC )
@@ -17,3 +18,9 @@ ALTER TABLE [stores].[store] WITH CHECK ADD CONSTRAINT [fk_store_region] FOREIGN
 REFERENCES [regions].[region] ([region_id]);
 
 ALTER TABLE [stores].[store] CHECK CONSTRAINT [fk_store_region];
+
+
+ALTER TABLE [stores].[store] WITH CHECK ADD CONSTRAINT [fk_store_state] FOREIGN KEY([state_id])
+REFERENCES [states].[state] ([state_id]);
+
+ALTER TABLE [stores].[store] CHECK CONSTRAINT [fk_store_state];
