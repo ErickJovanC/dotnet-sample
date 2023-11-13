@@ -1,4 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using DotNetLocalDb.WebApp.Data;
+using DotNetLocalDb.WebApp.Interfaces;
+using DotNetLocalDb.WebApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<DataDbContext>(
+    options => {
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    }
+);
+
+builder.Services.AddTransient<IStoreService, StoreService>();
 
 // builder.Services.AddControllersWithViews();
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -18,7 +34,7 @@ var app = builder.Build();
 
 // app.MapControllers();
 
-app.MapGet("/", () => "Hello World!");
+// app.MapGet("/", () => "Hello World!");
 app.MapGet("/createdb", () => {
     System.Console.WriteLine("Creating DB...");
     Sistrategia.Data.SqlClient.SqlDatabaseCreator.CreateDatabase(defaultConnectionString);
@@ -40,4 +56,13 @@ app.MapGet("dropSchema", () => {
     System.Console.WriteLine("Success Schema Drop");
 });
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
 app.Run();
