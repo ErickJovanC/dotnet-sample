@@ -218,6 +218,7 @@ INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (157, N'V
 SET IDENTITY_INSERT [media].[category] OFF
 
 
+--Media
 -- INSERT INTO [media].[media] ([media_id],[category_id], [name], [description], [cost], [price], [minimum_units], [is_countable], [is_active])
 --                      VALUES (1, 157, 'Medio 1', 'Primer Medio', 2.25, 14.34, 10, 1, 1);
 -- Generar 20 inserciones aleatorias
@@ -236,14 +237,14 @@ BEGIN
         [is_active]
     )
     VALUES (
-        ROUND(RAND() * (157 - 1) + 1, 0),  -- category_id entre 1 y 157
+        ROUND(RAND() * 156 , 0),  -- category_id entre 1 y 157
         'Nombre' + CAST(@counter AS NVARCHAR),  -- Nombre inventado
         'Descripción' + CAST(@counter AS NVARCHAR),  -- Descripción inventada
         ROUND(RAND() * 10, 2),  -- Costo decimal aleatorio
         ROUND(RAND() * 10 + 10, 2),  -- Precio decimal aleatorio mayor que el costo
-        CAST(ROUND(RAND() * 10, 0) AS INT),  -- Minimum_units entero aleatorio
-        CAST(CAST(RAND() AS BIT) AS INT),  -- is_countable 0 o 1
-        CAST(CAST(RAND() AS BIT) AS INT)  -- is_active 0 o 1
+        ROUND(RAND() * 10, 0),  -- Minimum_units entero aleatorio
+        CAST(RAND() AS BIT),  -- is_countable 0 o 1
+        CAST(RAND() AS BIT)  -- is_active 0 o 1
     );
 
     SET @counter = @counter + 1;

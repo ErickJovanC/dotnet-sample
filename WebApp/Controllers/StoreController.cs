@@ -32,14 +32,15 @@ public class StoreController : ControllerBase
 
     [HttpGet]
     [Route("{id}")]
-    public ActionResult GetStore(int id)
+    public ActionResult GetStore(/* [FromQuery] */ int id)
     {
         StoreEntity store = storeService.GetStoreEntityById(id);
         return Ok(store);
     }
 
     [HttpDelete]
-    public ActionResult DeleteStore([FromQuery] int id)
+    [Route("{id}")]
+    public ActionResult DeleteStore(/* [FromQuery]  */int id)
     {
         storeService.DeleteStore(id);
         return Ok();
