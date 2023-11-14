@@ -57,9 +57,8 @@ VALUES (10, 2, 1, 12, 'Benito Juarez', 'Perote');
 SET IDENTITY_INSERT [stores].[store] OFF;
 
 
-
+-- Categories
 SET IDENTITY_INSERT [media].[category] ON;
-
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (1, N'Café , té y sustitutos', 1);
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (2, N'Pan y tortillas empacados ', 1);
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (3, N'Cereales y Barras', 1);
@@ -216,5 +215,36 @@ INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (153, N'C
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (154, N'Electrodomésticos', 1);
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (155, N'Tarjetas de Prepago', 1);
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (157, N'Varias', 1);
-
 SET IDENTITY_INSERT [media].[category] OFF
+
+
+-- INSERT INTO [media].[media] ([media_id],[category_id], [name], [description], [cost], [price], [minimum_units], [is_countable], [is_active])
+--                      VALUES (1, 157, 'Medio 1', 'Primer Medio', 2.25, 14.34, 10, 1, 1);
+-- Generar 20 inserciones aleatorias
+DECLARE @counter INT = 1;
+
+WHILE @counter <= 50
+BEGIN
+    INSERT INTO [media].[media] (
+        [category_id],
+        [name],
+        [description],
+        [cost],
+        [price],
+        [minimum_units],
+        [is_countable],
+        [is_active]
+    )
+    VALUES (
+        ROUND(RAND() * (157 - 1) + 1, 0),  -- category_id entre 1 y 157
+        'Nombre' + CAST(@counter AS NVARCHAR),  -- Nombre inventado
+        'Descripción' + CAST(@counter AS NVARCHAR),  -- Descripción inventada
+        ROUND(RAND() * 10, 2),  -- Costo decimal aleatorio
+        ROUND(RAND() * 10 + 10, 2),  -- Precio decimal aleatorio mayor que el costo
+        CAST(ROUND(RAND() * 10, 0) AS INT),  -- Minimum_units entero aleatorio
+        CAST(CAST(RAND() AS BIT) AS INT),  -- is_countable 0 o 1
+        CAST(CAST(RAND() AS BIT) AS INT)  -- is_active 0 o 1
+    );
+
+    SET @counter = @counter + 1;
+END;

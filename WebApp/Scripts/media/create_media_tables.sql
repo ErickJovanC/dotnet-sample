@@ -11,7 +11,11 @@ CREATE TABLE [media].[media] (
     ,[category_id]      INT             NOT NULL
     ,[name]             NVARCHAR(50)    NOT NULL
     ,[description]      NVARCHAR(256)       NULL
-    ,[active]           BIT             NOT NULL DEFAULT(1)
+    ,[cost]             DECIMAL(10, 2)  NOT NULL
+    ,[price]            DECIMAL(10, 2)  NOT NULL
+    ,[minimum_units]    INT             NOT NULL
+    ,[is_countable]     BIT             NOT NULL
+    ,[is_active]        BIT             NOT NULL DEFAULT(1)
     ,CONSTRAINT [pk_media] PRIMARY KEY CLUSTERED ( [media_id] ASC )
 );
 
