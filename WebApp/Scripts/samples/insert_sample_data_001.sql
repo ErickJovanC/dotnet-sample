@@ -221,7 +221,7 @@ SET IDENTITY_INSERT [media].[category] OFF
 --Media
 -- INSERT INTO [media].[media] ([media_id],[category_id], [name], [description], [cost], [price], [minimum_units], [is_countable], [is_active])
 --                      VALUES (1, 157, 'Medio 1', 'Primer Medio', 2.25, 14.34, 10, 1, 1);
--- Generar 20 inserciones aleatorias
+-- Generar inserciones aleatorias
 DECLARE @counter INT = 1;
 
 WHILE @counter <= 50
@@ -237,15 +237,50 @@ BEGIN
         [is_active]
     )
     VALUES (
-        ROUND(RAND() * 156 , 0),  -- category_id entre 1 y 157
+        ROUND(RAND() * 156 , 0) + 1,  -- category_id entre 1 y 157
         'Nombre' + CAST(@counter AS NVARCHAR),  -- Nombre inventado
         'Descripción' + CAST(@counter AS NVARCHAR),  -- Descripción inventada
         ROUND(RAND() * 10, 2),  -- Costo decimal aleatorio
         ROUND(RAND() * 10 + 10, 2),  -- Precio decimal aleatorio mayor que el costo
         ROUND(RAND() * 10, 0),  -- Minimum_units entero aleatorio
-        CAST(RAND() AS BIT),  -- is_countable 0 o 1
-        CAST(RAND() AS BIT)  -- is_active 0 o 1
+        ROUND(RAND() * 1, 0),  -- is_countable 0 o 1
+        ROUND(RAND() * 1, 0)  -- is_active 0 o 1
     );
 
     SET @counter = @counter + 1;
 END;
+
+-- Store Media
+SET @counter = 1;
+WHILE @counter <= 100
+BEGIN
+    INSERT INTO [stores].[store_media] (
+        [store_id],
+        [media_id],
+        [qty],
+        [is_available]
+    )
+    VALUES (
+        ROUND(RAND() * 9 , 0) + 1,
+        ROUND(RAND() * 49 , 0) + 1,
+        ROUND(RAND() * 100, 0),
+        ROUND(RAND() * 1, 0)
+    );
+
+    SET @counter = @counter + 1;
+END;
+
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (1, 1, 100, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (2, 12, 50, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (2, 22, 500, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (3, 23, 10, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (3, 32, 150, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (3, 42, 5, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (4, 22, 25, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (5, 21, 5, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (5, 21, 5, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (6, 3, 5, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (7, 4, 5, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (8, 5, 5, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (9, 6, 5, 1);
+INSERT INTO [stores].[store_media] ([store_id], [media_id], [qty], [is_available]) VALUES (10, 7, 5, 1);

@@ -62,6 +62,7 @@ public class SqlSchemaBuilder
         DropTableIfExists("requests", "request");
         DropSchemaObjectIfExists("requests");
 
+        DropTableIfExists("stores", "store_media");
         DropTableIfExists("stores", "store");
         DropTableIfExists("stores", "store_format");
         DropSchemaObjectIfExists("stores");
