@@ -21,4 +21,6 @@ public class StoreEntity
     [Required, Column("name")]
     public string? Name {get; set;}
     public string? Location {get; set;}
+
+    public List<MediaEntity> Media {get; set;}
 }

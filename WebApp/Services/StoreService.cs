@@ -58,4 +58,13 @@ public class StoreService : IStoreService
         context.Update(storeEntity);
         context.SaveChanges();
     }
+
+    // public List<StoreEntity> GetStoresByMediaIds(int[] storeMediaIds)
+    // {
+    //     return context.Store.Where(
+    //         store => StoreMediaEntity.Stores.Any(
+    //             sm => sm.Media.Any(media => storeMediaIds.Contains(media.MediaId))
+    //         )
+    //     ).ToList();
+    // }
 }

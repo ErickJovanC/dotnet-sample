@@ -52,4 +52,16 @@ public class StoreController : ControllerBase
         storeService.UpdateStore(store, id);
         return Ok();
     }
+
+    // [HttpPost, Route("media")]
+    // public ActionResult GetStoreByMediaIds(int[] mediaIds)
+    // {
+    //     if (mediaIds == null || mediaIds.Length == 0)
+    //     {
+    //         return BadRequest("Debe proporcionar al menos un ID de MediaStore");
+    //     }
+
+    //     List<StoreEntity> media = storeService.GetStoresByMediaIds(mediaIds);
+    //     return Ok(media);
+    // }
 }

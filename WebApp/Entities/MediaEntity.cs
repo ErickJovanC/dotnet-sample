@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DotNetLocalDb.WebApp.Entities;
 
 namespace DotNetLocalDb.WebApp.Entities;
 
@@ -31,4 +32,6 @@ public class MediaEntity
 
     [Column("is_active")]
     public bool IsActive {get; set;}
+
+    public List<StoreEntity> Store {get; set;}
 }

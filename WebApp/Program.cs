@@ -16,6 +16,7 @@ builder.Services.AddDbContext<DataDbContext>(
 
 builder.Services.AddTransient<IStoreService, StoreService>();
 builder.Services.AddTransient<IMediaService, MediaService>();
+builder.Services.AddTransient<ILocationService, LocationService>();
 
 // builder.Services.AddControllersWithViews();
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
