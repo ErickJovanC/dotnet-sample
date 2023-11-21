@@ -19,8 +19,8 @@ public class MediaController : ControllerBase
     [HttpGet]
     public ActionResult GetAllMedia()
     {
-        List<MediaEntity> medias = mediaService.GetAllMedia();
-        return Ok(medias);
+        List<MediaEntity> media = mediaService.GetAllMedia();
+        return Ok(media);
     }
 
     [HttpPost]

@@ -4,6 +4,8 @@ using DotNetLocalDb.WebApp.Entities;
 
 namespace DotNetLocalDb.WebApp.Entities;
 
+[Table("media", Schema = "Media")]
+
 public class MediaEntity
 {
     [Key, Column("media_id")]
@@ -32,6 +34,4 @@ public class MediaEntity
 
     [Column("is_active")]
     public bool IsActive {get; set;}
-
-    public List<StoreEntity> Store {get; set;}
 }

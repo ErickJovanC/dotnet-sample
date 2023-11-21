@@ -23,7 +23,7 @@ public class DataDbContext : DbContext
        
 
         // Especificamos el esquema y el nombre de la tabla
-        modelBuilder.Entity<MediaEntity>().ToTable("media", schema: "media");
+        // modelBuilder.Entity<MediaEntity>().ToTable("media", schema: "media");
         modelBuilder.Entity<StateEntity>().ToTable("state", schema: "states");
         modelBuilder.Entity<StoreEntity>().ToTable("store", schema: "stores");
         modelBuilder.Entity<StoreMediaEntity>().ToTable("store_media", schema: "stores");

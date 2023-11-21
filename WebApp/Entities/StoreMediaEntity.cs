@@ -5,7 +5,7 @@ namespace DotNetLocalDb.WebApp.Entities;
 
 public class StoreMediaEntity
 {
-    [Key]
+    [Key, Column("store_media_id")]
     public int StoreMediaId {get; set;}
 
     [Column("store_id")]
@@ -19,8 +19,6 @@ public class StoreMediaEntity
     
     [Column("is_active")]
     public int IsActive {get; set;}
-
-    [Required]
-    public List<StoreEntity> Stores {get; set;}
-    public List<MediaEntity> Medias {get; set;}
+    // public List<StoreEntity> Stores {get; set;}
+    // public List<MediaEntity> Media {get; set;}
 }

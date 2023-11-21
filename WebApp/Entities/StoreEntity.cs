@@ -22,5 +22,5 @@ public class StoreEntity
     public string? Name {get; set;}
     public string? Location {get; set;}
 
-    public List<MediaEntity> Media {get; set;}
+    // public List<StoreMediaEntity> StoreMedia {get; set;}
 }
