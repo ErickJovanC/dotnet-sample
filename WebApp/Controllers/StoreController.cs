@@ -35,6 +35,11 @@ public class StoreController : ControllerBase
     public ActionResult GetStore(/* [FromQuery] */ int id)
     {
         StoreEntity store = storeService.GetStoreEntityById(id);
+
+        if (store == null) {
+            return NotFound($"There's no a Store whit ID {id}");
+        }
+
         return Ok(store);
     }
 

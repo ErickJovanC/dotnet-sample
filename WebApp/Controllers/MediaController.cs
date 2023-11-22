@@ -35,6 +35,11 @@ public class MediaController : ControllerBase
     public ActionResult GetMedia(/* [FromQuery] */ int id)
     {
         MediaEntity media = mediaService.GetMediaEntityById(id);
+
+        if (media == null) {
+            return NotFound($"There's no a Media whit ID {id}");
+        }
+
         return Ok(media);
     }
 
