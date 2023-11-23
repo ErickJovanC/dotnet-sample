@@ -1,15 +1,15 @@
+-- Entitity Type
+INSERT INTO [entities].[entity_type] ([entity_type_name], [description], [table_name])
+VALUES ('Tienda', N'Tienda Comercial', 'stores.store');
 
-INSERT INTO [entities].[entity_type] ([name], [description])
-VALUES ('Tienda', N'Tienda Comercial');
+INSERT INTO [entities].[entity_type] ([entity_type_name], [description], [table_name])
+VALUES ('Medio', N'Medio de publicidad', 'media.media');
 
-INSERT INTO [entities].[entity_type] ([name], [description])
-VALUES ('Medio', N'Medio de publicidad');
-
-INSERT INTO [entities].[entity_type] ([name], [description])
-VALUES ('Categoria', N'Categoria asiganada al publicitario');
+INSERT INTO [entities].[entity_type] ([entity_type_name], [description], [table_name])
+VALUES ('Categoria', N'Categoria asiganada al publicitario', 'media.category');
 
 
-
+-- Rules
 INSERT INTO [rules].[rule_type] ([rule_name], [description])
 VALUES ('Categoria', N'Limitado por categoria del producto');
 

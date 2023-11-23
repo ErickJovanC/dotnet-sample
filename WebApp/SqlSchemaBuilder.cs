@@ -23,9 +23,6 @@ public class SqlSchemaBuilder
         CreateSchemaObject("entities");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.entities.create_entities_tables.sql");
 
-        CreateSchemaObject("parties");
-        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.parties.create_party_tables.sql");
-
         CreateSchemaObject("rules");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_rules_tables.sql");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.rules.create_entity_rules.sql");
@@ -52,14 +49,25 @@ public class SqlSchemaBuilder
         CreateSchemaObject("quotations");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.quotations.create_quotation_table.sql");
 
+        CreateSchemaObject("parties");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.parties.create_party_tables.sql");
+
         CreateSchemaObject("quantities");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.quantities.create_quantity_tables.sql");
+
+        CreateSchemaObject("restrictions");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.restrictions.create_restriction_tables.sql");
 
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.samples.insert_sample_data_001.sql");
     }
 
     public void DropSchema()
     {
+        DropTableIfExists("restrictions", "restriction");
+        DropTableIfExists("restrictions", "restriction_type");
+        DropTableIfExists("restrictions", "restriction_entity");
+        DropSchemaObjectIfExists("restrictions");
+
         DropTableIfExists("quantities", "quantity");
         DropSchemaObjectIfExists("quantities");
 
@@ -92,6 +100,8 @@ public class SqlSchemaBuilder
         DropSchemaObjectIfExists("rules");
 
         DropTableIfExists("parties", "party");
+        DropTableIfExists("parties", "party_type");
+        DropSchemaObjectIfExists("parties");
 
         DropTableIfExists("entities", "entity");
         DropTableIfExists("entities", "entity_type");
