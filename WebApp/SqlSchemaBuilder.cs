@@ -58,11 +58,17 @@ public class SqlSchemaBuilder
         CreateSchemaObject("restrictions");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.restrictions.create_restriction_tables.sql");
 
+        CreateSchemaObject("services");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.services.create_service_tables.sql");
+
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.samples.insert_sample_data_001.sql");
     }
 
     public void DropSchema()
     {
+        DropTableIfExists("services", "service");
+        DropSchemaObjectIfExists("services");
+
         DropTableIfExists("restrictions", "restriction");
         DropTableIfExists("restrictions", "restriction_type");
         DropTableIfExists("restrictions", "restriction_entity");

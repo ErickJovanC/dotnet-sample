@@ -214,7 +214,7 @@ INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (152, N'J
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (153, N'Computo', 1);
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (154, N'Electrodomésticos', 1);
 INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (155, N'Tarjetas de Prepago', 1);
-INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (157, N'Varias', 1);
+INSERT INTO [media].[category] ([category_id],[name], [active]) VALUES (156, N'Varias', 1);
 SET IDENTITY_INSERT [media].[category] OFF
 
 
@@ -237,7 +237,7 @@ BEGIN
         [is_active]
     )
     VALUES (
-        ROUND(RAND() * 156 , 0) + 1,  -- category_id entre 1 y 157
+        ROUND(RAND() * 155 , 0) + 1,  -- category_id entre 1 y 157
         'Nombre' + CAST(@counter AS NVARCHAR),  -- Nombre inventado
         'Descripción' + CAST(@counter AS NVARCHAR),  -- Descripción inventada
         ROUND(RAND() * 10, 2),  -- Costo decimal aleatorio
