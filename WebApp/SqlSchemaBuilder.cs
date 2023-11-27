@@ -61,11 +61,17 @@ public class SqlSchemaBuilder
         CreateSchemaObject("services");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.services.create_service_tables.sql");
 
+        CreateSchemaObject("tenants");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.tenants.create_tenant_tables.sql");
+
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.samples.insert_sample_data_001.sql");
     }
 
     public void DropSchema()
     {
+        DropTableIfExists("tenants", "tenant");
+        DropSchemaObjectIfExists("tenants");
+
         DropTableIfExists("services", "service");
         DropSchemaObjectIfExists("services");
 
