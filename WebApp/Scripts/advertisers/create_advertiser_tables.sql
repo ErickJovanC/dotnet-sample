@@ -1,6 +1,6 @@
 CREATE TABLE [advertisers].[advertiser] (
     [advertiser_id] INT             NOT NULL
-    , [tenant_id] INT             NOT NULL
+    , [tenant_id] INT               NOT NULL
     , [name]        NVARCHAR(50)    NOT NULL
     ,CONSTRAINT [pk_advertiser] PRIMARY KEY CLUSTERED ( [advertiser_id] ASC )
 );

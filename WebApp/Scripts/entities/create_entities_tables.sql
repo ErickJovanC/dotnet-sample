@@ -21,7 +21,7 @@ ALTER TABLE [entities].[entity] CHECK CONSTRAINT [fk_entity_entity_type];
 -- Entity Type
 SET IDENTITY_INSERT [entities].[entity_type] ON;
 INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
-VALUES (1, N'Categoría', N'Categoría asiganada al publicitario', 'media.category');
+VALUES (1, N'Categoría', N'Categoría asignada al publicitario', 'media.category');
 INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
 VALUES (2, 'Tienda', N'Tienda Comercial', 'stores.store');
 INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
