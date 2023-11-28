@@ -7,7 +7,9 @@ public class DataDbContext : DbContext
 {
     public DataDbContext(DbContextOptions<DataDbContext> options) : base(options) { }
 
+    public DbSet<EntityEntity> Entity { get; set; }
     public DbSet<MediaEntity> Media { get; set; }
+    public DbSet<BrandEntity> Brand { get; set; }
     public DbSet<StoreEntity> Store { get; set; }
     public DbSet<StateEntity> State { get; set; }
     public DbSet<StoreMediaEntity> StoreMedia { get; set; }

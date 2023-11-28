@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DotNetLocalDb.WebApp.Entities;
 
 namespace DotNetLocalDb.WebApp.Entities;
 

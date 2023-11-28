@@ -26,6 +26,8 @@ INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [desc
 VALUES (2, 'Tienda', N'Tienda Comercial', 'stores.store');
 INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
 VALUES (3, 'Medio', N'Medio de publicidad', 'media.media');
+INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
+VALUES (4, 'Marca', N'Marcas Comerciales', 'brands.brand');
 SET IDENTITY_INSERT [entities].[entity_type] OFF;
 
 
