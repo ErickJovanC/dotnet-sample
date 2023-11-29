@@ -7,7 +7,7 @@ CREATE TABLE [media].[category] (
 );
 
 CREATE TABLE [media].[media] (
-     [media_id]         INT             NOT NULL    identity(1,1)
+     [media_id]         INT             NOT NULL
     ,[category_id]      INT             NOT NULL
     ,[name]             NVARCHAR(50)    NOT NULL
     ,[description]      NVARCHAR(256)       NULL

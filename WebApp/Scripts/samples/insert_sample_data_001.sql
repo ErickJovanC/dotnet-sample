@@ -51,10 +51,12 @@ SET IDENTITY_INSERT [stores].[store] OFF;
 --                      VALUES (1, 157, 'Medio 1', 'Primer Medio', 2.25, 14.34, 10, 1, 1);
 -- Generar inserciones aleatorias
 DECLARE @counter INT = 1;
+DECLARE @id INT = 157;
 
 WHILE @counter <= 50
 BEGIN
     INSERT INTO [media].[media] (
+        [media_id],
         [category_id],
         [name],
         [description],
@@ -65,8 +67,9 @@ BEGIN
         [is_active]
     )
     VALUES (
+        @id,
         ROUND(RAND() * 155 , 0) + 1,  -- category_id entre 1 y 157
-        'Nombre' + CAST(@counter AS NVARCHAR),  -- Nombre inventado
+        'Medio ' + CAST(@counter AS NVARCHAR),  -- Nombre inventado
         'Descripción' + CAST(@counter AS NVARCHAR),  -- Descripción inventada
         ROUND(RAND() * 10, 2),  -- Costo decimal aleatorio
         ROUND(RAND() * 10 + 10, 2),  -- Precio decimal aleatorio mayor que el costo
@@ -75,6 +78,18 @@ BEGIN
         ROUND(RAND() * 1, 0)  -- is_active 0 o 1
     );
 
+    INSERT INTO [entities].[entity] (
+        [entity_id],
+        [entity_name],
+        [entity_type_id]
+    )
+    VALUES (
+        @id,
+        'Medio ' + CAST(@counter AS NVARCHAR),
+        3
+    );
+
+    SET @id = @id + 1;
     SET @counter = @counter + 1;
 END;
 

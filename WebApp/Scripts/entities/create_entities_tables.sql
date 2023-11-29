@@ -7,7 +7,7 @@ CREATE TABLE [entities].[entity_type] (
 );
 
 CREATE TABLE [entities].[entity] (
-    [entity_id]         INT          NOT NULL    identity(1,1)
+    [entity_id]         INT          NOT NULL
     , [entity_type_id]  INT          NOT NULL
     , [entity_name]     NVARCHAR(50) NOT NULL
     ,CONSTRAINT [pk_entity] PRIMARY KEY CLUSTERED ( [entity_id] ASC )
@@ -32,7 +32,7 @@ SET IDENTITY_INSERT [entities].[entity_type] OFF;
 
 
 -- Entities
-SET IDENTITY_INSERT [entities].[entity] ON;
+-- SET IDENTITY_INSERT [entities].[entity] ON;
 INSERT INTO [entities].[entity] ([entity_id],[entity_name], [entity_type_id]) VALUES (1, N'Café , té y sustitutos', 1);
 INSERT INTO [entities].[entity] ([entity_id],[entity_name], [entity_type_id]) VALUES (2, N'Pan y tortillas empacados ', 1);
 INSERT INTO [entities].[entity] ([entity_id],[entity_name], [entity_type_id]) VALUES (3, N'Cereales y Barras', 1);
@@ -189,4 +189,4 @@ INSERT INTO [entities].[entity] ([entity_id],[entity_name], [entity_type_id]) VA
 INSERT INTO [entities].[entity] ([entity_id],[entity_name], [entity_type_id]) VALUES (154, N'Electrodomésticos', 1);
 INSERT INTO [entities].[entity] ([entity_id],[entity_name], [entity_type_id]) VALUES (155, N'Tarjetas de Prepago', 1);
 INSERT INTO [entities].[entity] ([entity_id],[entity_name], [entity_type_id]) VALUES (156, N'Varias', 1);
-SET IDENTITY_INSERT [entities].[entity] OFF
+-- SET IDENTITY_INSERT [entities].[entity] OFF
