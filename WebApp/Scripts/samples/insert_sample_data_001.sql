@@ -24,25 +24,25 @@ SET IDENTITY_INSERT [stores].[store_format] OFF;
 -- Stores
 SET IDENTITY_INSERT [stores].[store] ON;
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (1, 1, 1, 3, 'Domingo Diez', 'Cuernavaca');
+VALUES (1, 1, 1, 217, 'Domingo Diez', 'Cuernavaca');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (2, 2, 1, 4, 'Walmart Atrios', 'Cuautla');
+VALUES (2, 2, 1, 218, 'Walmart Atrios', 'Cuautla');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (3, 3, 1, 5, 'Sendero', 'Iztapalapa');
+VALUES (3, 3, 1, 219, 'Sendero', 'Iztapalapa');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (4, 2, 1, 6, 'Diaz Ordaz', 'Chalco');
+VALUES (4, 2, 1, 220, 'Diaz Ordaz', 'Chalco');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (5, 2, 1, 7, 'Benito Juarez', 'Tlalmanalco');
+VALUES (5, 2, 1, 221, 'Benito Juarez', 'Tlalmanalco');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (6, 2, 1, 8, 'Corraleta', 'Alpanocan');
+VALUES (6, 2, 1, 222, 'Corraleta', 'Alpanocan');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (7, 2, 1, 9, 'Benito Juarez', 'Yecapixtla');
+VALUES (7, 2, 1, 223, 'Benito Juarez', 'Yecapixtla');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (8, 2, 1, 10, 'Benito Juarez', 'Xochimilco');
+VALUES (8, 2, 1, 224, 'Benito Juarez', 'Xochimilco');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (9, 2, 1, 11, 'Benito Juarez', 'Orizaba');
+VALUES (9, 2, 1, 225, 'Benito Juarez', 'Orizaba');
 INSERT INTO [stores].[store] ([store_id], [store_format_id], [region_id], [state_id], [name], [location])
-VALUES (10, 2, 1, 12, 'Benito Juarez', 'Perote');
+VALUES (10, 2, 1, 226, 'Benito Juarez', 'Perote');
 SET IDENTITY_INSERT [stores].[store] OFF;
 
 
