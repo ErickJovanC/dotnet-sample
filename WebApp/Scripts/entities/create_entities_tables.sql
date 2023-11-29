@@ -21,13 +21,12 @@ ALTER TABLE [entities].[entity] CHECK CONSTRAINT [fk_entity_entity_type];
 -- Entity Type
 SET IDENTITY_INSERT [entities].[entity_type] ON;
 INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
-VALUES (1, N'Categoría', N'Categoría asignada al publicitario', 'media.category');
-INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
-VALUES (2, 'Tienda', N'Tienda Comercial', 'stores.store');
-INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
-VALUES (3, 'Medio', N'Medio de publicidad', 'media.media');
-INSERT INTO [entities].[entity_type] ([entity_type_id],[entity_type_name], [description], [table_entity_name])
-VALUES (4, 'Marca', N'Marcas Comerciales', 'brands.brand');
+VALUES (1, N'Categoría', N'Categoría asignada al publicitario', 'media.category')
+, (2, 'Tienda', N'Tienda Comercial', 'stores.store')
+, (3, 'Medio', N'Medio de publicidad', 'media.media')
+, (4, 'Marca', N'Marcas Comerciales', 'brands.brand')
+, (5, 'Advertisers', N'Clientes del Tenant', 'advertisers.advertiser')
+;
 SET IDENTITY_INSERT [entities].[entity_type] OFF;
 
 

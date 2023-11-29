@@ -5,15 +5,22 @@ CREATE TABLE [advertisers].[advertiser] (
     ,CONSTRAINT [pk_advertiser] PRIMARY KEY CLUSTERED ( [advertiser_id] ASC )
 );
 
+SET IDENTITY_INSERT [entities].[entity] ON
+INSERT INTO [entities].[entity] ([entity_id], [entity_type_id], [entity_name])
+VALUES (207, 5, 'Coca-Cola')
+, (208, 5, 'Pepsi')
+, (209, 5, 'Heinz')
+, (210, 5, 'Pascual')
+, (211, 5, 'Scribe')
+, (212, 5, 'Bimbo')
+;
+SET IDENTITY_INSERT [entities].[entity] OFF
+
 INSERT INTO [advertisers].[advertiser] ([advertiser_id], [tenant_id], [name])
-VALUES (1, 1, 'Bimbo');
-INSERT INTO [advertisers].[advertiser] ([advertiser_id], [tenant_id], [name])
-VALUES (2, 1, 'Coca-Cola');
-INSERT INTO [advertisers].[advertiser] ([advertiser_id], [tenant_id], [name])
-VALUES (3, 2, 'Pepsi');
-INSERT INTO [advertisers].[advertiser] ([advertiser_id], [tenant_id], [name])
-VALUES (4, 2, 'Heinz');
-INSERT INTO [advertisers].[advertiser] ([advertiser_id], [tenant_id], [name])
-VALUES (5, 3, 'Pascual');
-INSERT INTO [advertisers].[advertiser] ([advertiser_id], [tenant_id], [name])
-VALUES (6, 4, 'Scribe');
+VALUES (207, 1, 'Coca-Cola')
+, (208, 2, 'Pepsi')
+, (209, 2, 'Heinz')
+, (210, 3, 'Pascual')
+, (211, 4, 'Scribe')
+, (212, 1, 'Bimbo')
+;
