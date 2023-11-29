@@ -7,4 +7,6 @@ public interface ILocationService
 {
     StateEntity GetStateEntityById(int stateId);
     List<StateEntity> GetAllStates();
+    public List<RegionEntity> GetAllRegions();
+    public RegionEntity GetRegionEntityById(int storeId);
 }

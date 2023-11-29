@@ -18,8 +18,18 @@ public class LocationService : ILocationService
         return context.State.ToList();
     }
 
+    public List<RegionEntity> GetAllRegions()
+    {
+        return context.Region.ToList();
+    }
+
     public StateEntity GetStateEntityById(int storeId)
     {
         return context.State.Find(storeId);
+    }
+
+    public RegionEntity GetRegionEntityById(int storeId)
+    {
+        return context.Region.Find(storeId);
     }
 }

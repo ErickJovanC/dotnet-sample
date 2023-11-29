@@ -12,6 +12,7 @@ public class DataDbContext : DbContext
     public DbSet<BrandEntity> Brand { get; set; }
     public DbSet<StoreEntity> Store { get; set; }
     public DbSet<StateEntity> State { get; set; }
+    public DbSet<RegionEntity> Region { get; set; }
     public DbSet<StoreMediaEntity> StoreMedia { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

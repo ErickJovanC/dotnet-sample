@@ -17,19 +17,38 @@ public class LocationController : ControllerBase
     [HttpGet, Route("api/States")]
     public ActionResult GetAllStates()
     {
-        List<StateEntity> locations = locationService.GetAllStates();
-        return Ok(locations);
+        List<StateEntity> states = locationService.GetAllStates();
+        return Ok(states);
+    }
+
+    [HttpGet, Route("api/Regions")]
+    public ActionResult GetAllRegions()
+    {
+        List<RegionEntity> regions = locationService.GetAllRegions();
+        return Ok(regions);
     }
 
     [HttpGet, Route("api/State/{id}")]
     public ActionResult GetState(int id)
     {
-        StateEntity location = locationService.GetStateEntityById(id);
+        StateEntity state = locationService.GetStateEntityById(id);
 
-        if (location == null) {
+        if (state == null) {
             return NotFound($"There's no a State whit ID {id}");
         }
 
-        return Ok(location);
+        return Ok(state);
+    }
+
+    [HttpGet, Route("api/Region/{id}")]
+    public ActionResult GetRegion(int id)
+    {
+        RegionEntity region = locationService.GetRegionEntityById(id);
+
+        if (region == null) {
+            return NotFound($"There's no a Region whit ID {id}");
+        }
+
+        return Ok(region);
     }
 }
