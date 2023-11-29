@@ -40,7 +40,6 @@ public class SqlSchemaBuilder
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.states.create_state_tables.sql");
 
         CreateSchemaObject("stores");
-        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.stores.create_store_format_tables.sql");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.stores.create_store_tables.sql");
 
         CreateSchemaObject("requests");
