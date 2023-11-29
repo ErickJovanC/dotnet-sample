@@ -78,6 +78,8 @@ public class SqlSchemaBuilder
 
     public void DropSchema()
     {
+        DropTableIfExists("discounts", "discount_validations");
+        DropTableIfExists("discounts", "discount_entity");
         DropTableIfExists("discounts", "discount");
         DropSchemaObjectIfExists("discounts");
 

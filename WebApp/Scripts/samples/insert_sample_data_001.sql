@@ -53,6 +53,7 @@ SET IDENTITY_INSERT [stores].[store] OFF;
 DECLARE @counter INT = 1;
 DECLARE @id INT = 157;
 
+SET IDENTITY_INSERT [entities].[entity] ON
 WHILE @counter <= 50
 BEGIN
     INSERT INTO [media].[media] (
@@ -92,6 +93,7 @@ BEGIN
     SET @id = @id + 1;
     SET @counter = @counter + 1;
 END;
+SET IDENTITY_INSERT [entities].[entity] OFF
 
 -- Store Media
 SET @counter = 1;
