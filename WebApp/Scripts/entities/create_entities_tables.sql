@@ -25,8 +25,8 @@ VALUES (1, N'Categoría', N'Categoría asignada al publicitario', 'media.categor
 , (2, 'Tienda', N'Tienda Comercial', 'stores.store')
 , (3, 'Medio', N'Medio de publicidad', 'media.media')
 , (4, 'Marca', N'Marcas Comerciales', 'brands.brand')
-, (5, 'Advertisers', N'Clientes del Tenant', 'advertisers.advertiser')
-, (6, 'States', N'Estados de la Republica', 'states.state')
+, (5, 'Anunciantes', N'Clientes del Tenant', 'advertisers.advertiser')
+, (6, 'Estados', N'Estados de la Republica', 'states.state')
 ;
 SET IDENTITY_INSERT [entities].[entity_type] OFF;
 
