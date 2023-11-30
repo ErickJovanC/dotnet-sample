@@ -16,56 +16,29 @@ public class RestrictionService : IRestrictionService
         this.context = context;
     }
 
-    public void CreateRestriction(Restriction restriction)
+    public void CreateRestriction(RestrictionDTO restrictionDTO)
     {
-        RestrictionEntity restrictionEntity = new()
+        Restriction restriction = new()
         {
-            DateStart = restriction.DateStart,
-            DateEnd = restriction.DateEnd,
+            DateStart = restrictionDTO.DateStart,
+            DateEnd = restrictionDTO.DateEnd,
         };
 
-        context.Restriction.Add(restrictionEntity);
+        context.Restriction.Add(restriction);
         context.SaveChanges();
 
-        Console.WriteLine($"Este es el ID de la restricctión: {restrictionEntity.RestrictionId}");
-
-        RestrictionEntityEntity restrictionEntityEntity = new ()
+        RestrictionEntity restrictionEntity = new ()
         {
-            RestrictionId = restrictionEntity.RestrictionId,
-            EntityId = restriction.EntityId,
+            RestrictionId = restriction.RestrictionId,
+            EntityId = restrictionDTO.EntityId,
         };
 
-        context.RestrictionEntity.Add(restrictionEntityEntity);
+        context.RestrictionEntity.Add(restrictionEntity);
         context.SaveChanges();
     }
 
-    public void DeleteRestriction(int id)
+    public List<Restriction> GetAllRestrictions()
     {
-        throw new NotImplementedException();
-    }
-
-    public void DeleteRestrictionEntity(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<RestrictionEntity> GetAllRestrictions()
-    {
-        return context.Restriction.Include(x => x.RestrictionEntityEntity).ToList();
-    }
-
-    public RestrictionEntity GetRestrictionById(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public RestrictionEntityEntity GetRestrictionEntitiesByRestrictionId(int restrictionId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateRestrictionEntity(RestrictionEntity restrictionEntity, int id)
-    {
-        throw new NotImplementedException();
+        return context.Restriction.Include(x => x.RestrictionEntity).ToList();
     }
 }

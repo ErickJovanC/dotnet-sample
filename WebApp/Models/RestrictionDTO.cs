@@ -1,6 +1,6 @@
 namespace DotNetLocalDb.WebApp.Models;
 
-public class Restriction
+public class RestrictionDTO
 {
     public int EntityId {get; set;}
     public DateTime ? DateStart {get; set;}

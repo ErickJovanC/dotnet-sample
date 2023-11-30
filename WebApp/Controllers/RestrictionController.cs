@@ -22,12 +22,12 @@ public class RestrictionController : ControllerBase
     [HttpGet]
     public ActionResult Index()
     {
-        List<RestrictionEntity> restrictions = restrictionService.GetAllRestrictions();
+        List<Restriction> restrictions = restrictionService.GetAllRestrictions();
         return Ok(restrictions);
     }
 
     [HttpPost]
-    public ActionResult CreateRestriction([FromBody] Restriction restriction)
+    public ActionResult CreateRestriction([FromBody] RestrictionDTO restrictionDTO)
     {
         // var existRestriction = context.Entity.Any(x => x.EntityId == restriction.EntityId);
 
@@ -39,7 +39,7 @@ public class RestrictionController : ControllerBase
         // }
         // System.Console.WriteLine("Si existe la Restricción");
 
-        restrictionService.CreateRestriction(restriction);
+        restrictionService.CreateRestriction(restrictionDTO);
         return Ok();
     }
 }
