@@ -11,10 +11,10 @@ public class RestrictionEntity
     public int RestrictionId {get; set;}
 
     [Column("date_start")]
-    // [NotMapped]
     public DateTime ? DateStart {get; set;}
 
     [Column("date_end")]
-    // [NotMapped]
     public DateTime ? DateEnd {get; set;}
+
+    public List<RestrictionEntityEntity> RestrictionEntityEntity {get; set;}
 }

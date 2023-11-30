@@ -2,6 +2,8 @@ using DotNetLocalDb.WebApp.Data;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace DotNetLocalDb.WebApp.Services;
 
@@ -49,7 +51,7 @@ public class RestrictionService : IRestrictionService
 
     public List<RestrictionEntity> GetAllRestrictions()
     {
-        throw new NotImplementedException();
+        return context.Restriction.Include(x => x.RestrictionEntityEntity).ToList();
     }
 
     public RestrictionEntity GetRestrictionById(int id)

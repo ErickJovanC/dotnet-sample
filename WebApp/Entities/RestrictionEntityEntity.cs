@@ -12,4 +12,6 @@ public class RestrictionEntityEntity
 
     [Key, Column("entity_id")]
     public int EntityId {get; set;}
+
+    public RestrictionEntity RestrictionEntity {get; set;}
 }
