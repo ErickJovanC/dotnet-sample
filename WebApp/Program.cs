@@ -2,9 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using DotNetLocalDb.WebApp.Data;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.Services;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
