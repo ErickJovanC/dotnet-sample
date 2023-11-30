@@ -13,6 +13,8 @@ public class DataDbContext : DbContext
     public DbSet<StoreEntity> Store { get; set; }
     public DbSet<StateEntity> State { get; set; }
     public DbSet<RegionEntity> Region { get; set; }
+    public DbSet<RestrictionEntity> Restriction { get; set; }
+    public DbSet<RestrictionEntityEntity> RestrictionEntity { get; set; }
     public DbSet<StoreMediaEntity> StoreMedia { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,5 +32,8 @@ public class DataDbContext : DbContext
         modelBuilder.Entity<StateEntity>().ToTable("state", schema: "states");
         modelBuilder.Entity<StoreEntity>().ToTable("store", schema: "stores");
         modelBuilder.Entity<StoreMediaEntity>().ToTable("store_media", schema: "stores");
+
+        modelBuilder.Entity<RestrictionEntityEntity>()
+            .HasKey(re => new { re.EntityId, re.RestrictionId });
     }
 }

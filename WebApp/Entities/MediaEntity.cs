@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNetLocalDb.WebApp.Entities;
 
-[Table("media", Schema = "Media")]
+[Table("media", Schema = "media")]
 
 public class MediaEntity
 {
