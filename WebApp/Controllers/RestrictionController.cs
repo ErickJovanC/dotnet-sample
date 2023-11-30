@@ -42,4 +42,11 @@ public class RestrictionController : ControllerBase
         restrictionService.CreateRestriction(restrictionDTO);
         return Ok();
     }
+
+    [HttpPost, Route("Entity")]
+    public ActionResult AddEntity([FromBody] RestrictionEntityDTO restrictionEntityDTO)
+    {
+        restrictionService.AddEntity(restrictionEntityDTO);
+        return Ok();
+    }
 }

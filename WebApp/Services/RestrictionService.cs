@@ -41,4 +41,21 @@ public class RestrictionService : IRestrictionService
     {
         return context.Restriction.Include(x => x.RestrictionEntity).ToList();
     }
+
+    public Restriction GetRestrictionById(int restrictionId)
+    {
+        return context.Restriction.Find(restrictionId);
+    }
+
+    public void AddEntity(RestrictionEntityDTO restrictionEntityDTO)
+    {
+        RestrictionEntity restrictionEntity = new ()
+        {
+            RestrictionId = restrictionEntityDTO.RestrictionId,
+            EntityId = restrictionEntityDTO.EntityId,
+        };
+
+        context.RestrictionEntity.Add(restrictionEntity);
+        context.SaveChanges();
+    }
 }

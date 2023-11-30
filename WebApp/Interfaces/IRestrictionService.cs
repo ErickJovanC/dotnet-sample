@@ -7,4 +7,6 @@ public interface IRestrictionService
 {
     public List<Restriction> GetAllRestrictions();
     public void CreateRestriction(RestrictionDTO restrictionDTO);
+    public Restriction GetRestrictionById(int restrictionId);
+    public void AddEntity(RestrictionEntityDTO restrictionEntityDTO);
 }
