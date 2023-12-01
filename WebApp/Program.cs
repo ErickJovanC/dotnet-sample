@@ -21,6 +21,7 @@ builder.Services.AddTransient<IMediaService, MediaService>();
 builder.Services.AddTransient<ILocationService, LocationService>();
 builder.Services.AddTransient<IBrandService, BrandService>();
 builder.Services.AddTransient<IRestrictionService, RestrictionService>();
+builder.Services.AddTransient<IDiscountService, DiscountService>();
 
 // builder.Services.AddControllersWithViews();
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");

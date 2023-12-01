@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNetLocalDb.WebApp.Entities;
 
-[Table("brand", Schema = "Brands")]
+[Table("brand", Schema = "brands")]
 
 public class BrandEntity
 {

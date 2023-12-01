@@ -1,5 +1,5 @@
 CREATE TABLE [discounts].[discount] (
-    [discount_id]       INT             NOT NULL
+    [discount_id]       INT             NOT NULL    identity(1,1)
     , [percentage]      DECIMAL         NOT NULL
     , [date_start]      DATE                NULL
     , [date_end]        DATE                NULL

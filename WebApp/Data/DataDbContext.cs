@@ -16,6 +16,9 @@ public class DataDbContext : DbContext
     public DbSet<Restriction> Restriction { get; set; }
     public DbSet<RestrictionEntity> RestrictionEntity { get; set; }
     public DbSet<StoreMediaEntity> StoreMedia { get; set; }
+    public DbSet<Discount> Discount { get; set; }
+    public DbSet<DiscountEntity> DiscountEntity { get; set; }
+    public DbSet<DiscountValidation> DiscountValidation { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -35,5 +38,11 @@ public class DataDbContext : DbContext
 
         modelBuilder.Entity<RestrictionEntity>()
             .HasKey(re => new { re.EntityId, re.RestrictionId });
+
+        modelBuilder.Entity<DiscountEntity>()
+            .HasKey(de => new { de.EntityId, de.DiscountId });
+
+        modelBuilder.Entity<DiscountValidation>()
+            .HasKey(de => new { de.EntityId, de.DiscountId });
     }
 }
