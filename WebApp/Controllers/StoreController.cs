@@ -5,7 +5,7 @@ using DotNetLocalDb.WebApp.Models;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/store")]
 [ApiController]
 public class StoreController : ControllerBase
 {
@@ -21,6 +21,13 @@ public class StoreController : ControllerBase
     {
         List<StoreEntity> stores = storeService.GetAllStores();
         return Ok(stores);
+    }
+
+    [HttpGet, Route("format")]
+    public ActionResult GetAllFormats()
+    {
+        List<StoreFormat> formats = storeService.GetAllFormats();
+        return Ok(formats);
     }
 
     [HttpPost]

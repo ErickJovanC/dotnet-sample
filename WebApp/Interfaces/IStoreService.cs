@@ -10,5 +10,5 @@ public interface IStoreService
     void DeleteStore(int storeId);
     StoreEntity GetStoreEntityById(int stateId);
     List<StoreEntity> GetAllStores();
-    // public List<StoreEntity> GetStoresByMediaIds(int[] MediaIds);
+    List<StoreFormat> GetAllFormats();
 }

@@ -11,6 +11,7 @@ public class DataDbContext : DbContext
     public DbSet<MediaEntity> Media { get; set; }
     public DbSet<BrandEntity> Brand { get; set; }
     public DbSet<StoreEntity> Store { get; set; }
+    public DbSet<StoreFormat> StoreFormat { get; set; }
     public DbSet<StateEntity> State { get; set; }
     public DbSet<RegionEntity> Region { get; set; }
     public DbSet<Restriction> Restriction { get; set; }

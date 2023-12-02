@@ -41,6 +41,11 @@ public class StoreService : IStoreService
         return context.Store.ToList();
     }
 
+    public List<StoreFormat> GetAllFormats()
+    {
+        return context.StoreFormat.ToList();
+    }
+
     public StoreEntity GetStoreEntityById(int storeId)
     {
         return context.Store.Find(storeId);
