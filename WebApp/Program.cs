@@ -23,6 +23,8 @@ builder.Services.AddTransient<IBrandService, BrandService>();
 builder.Services.AddTransient<IRestrictionService, RestrictionService>();
 builder.Services.AddTransient<IDiscountService, DiscountService>();
 
+builder.Services.AddAutoMapper(typeof(Program));
+
 // builder.Services.AddControllersWithViews();
 var defaultConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
