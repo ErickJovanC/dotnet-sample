@@ -10,6 +10,7 @@ public class DataDbContext : DbContext
     public DbSet<EntityEntity> Entity { get; set; }
     public DbSet<MediaEntity> Media { get; set; }
     public DbSet<BrandEntity> Brand { get; set; }
+    public DbSet<Category> Category { get; set; }
     public DbSet<StoreEntity> Store { get; set; }
     public DbSet<StoreFormat> StoreFormat { get; set; }
     public DbSet<StateEntity> State { get; set; }

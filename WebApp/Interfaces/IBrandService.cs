@@ -10,4 +10,5 @@ public interface IBrandService
     void DeleteBrand(int mediaId);
     BrandEntity GetBrandEntityById(int mediaId);
     List<BrandEntity> GetAllBrand();
+    List<Category> GetAllCategories();
 }

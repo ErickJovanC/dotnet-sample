@@ -64,4 +64,9 @@ public class BrandService : IBrandService
         context.Update(brandEntity);
         context.SaveChanges();
     }
+
+    public List<Category> GetAllCategories()
+    {
+        return context.Category.ToList();
+    }
 }

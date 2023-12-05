@@ -5,28 +5,28 @@ using DotNetLocalDb.WebApp.Models;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/[brand]")]
 [ApiController]
 public class BrandController : ControllerBase
 {
-    private readonly IBrandService mediaService;
+    private readonly IBrandService brandService;
 
-    public BrandController(IBrandService mediaService)
+    public BrandController(IBrandService brandService)
     {
-        this.mediaService = mediaService;
+        this.brandService = brandService;
     }
 
     [HttpGet]
     public ActionResult GetAllBrand()
     {
-        List<BrandEntity> media = mediaService.GetAllBrand();
-        return Ok(media);
+        List<BrandEntity> brand = brandService.GetAllBrand();
+        return Ok(brand);
     }
 
     [HttpPost]
-    public ActionResult CreateBrand([FromBody] Brand media)
+    public ActionResult CreateBrand([FromBody] Brand brand)
     {
-        mediaService.CreateBrand(media);
+        brandService.CreateBrand(brand);
         return Ok();
     }
 
@@ -34,27 +34,34 @@ public class BrandController : ControllerBase
     [Route("{id}")]
     public ActionResult GetBrand(/* [FromQuery] */ int id)
     {
-        BrandEntity media = mediaService.GetBrandEntityById(id);
+        BrandEntity brand = brandService.GetBrandEntityById(id);
 
-        if (media == null) {
+        if (brand == null) {
             return NotFound($"There's no a Brand whit ID {id}");
         }
 
-        return Ok(media);
+        return Ok(brand);
     }
 
     [HttpDelete]
     [Route("{id}")]
     public ActionResult DeleteBrand(/* [FromQuery] */ int id)
     {
-        mediaService.DeleteBrand(id);
+        brandService.DeleteBrand(id);
         return Ok();
     }
 
     [HttpPut, Route("{id}")]
-    public ActionResult UpdateBrand(Brand media, int id)
+    public ActionResult UpdateBrand(Brand brand, int id)
     {
-        mediaService.UpdateBrand(media, id);
+        brandService.UpdateBrand(brand, id);
         return Ok();
+    }
+
+    [HttpGet, Route("category")]
+    public ActionResult GetAllCategories()
+    {
+        List<Category> brands = brandService.GetAllCategories();
+        return Ok(brands);
     }
 }
