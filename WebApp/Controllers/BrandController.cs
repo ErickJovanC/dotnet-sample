@@ -5,7 +5,7 @@ using DotNetLocalDb.WebApp.Models;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
-[Route("api/[brand]")]
+[Route("api/brand")]
 [ApiController]
 public class BrandController : ControllerBase
 {
