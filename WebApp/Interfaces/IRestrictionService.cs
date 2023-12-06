@@ -1,4 +1,4 @@
-using DotNetLocalDb.WebApp.Models;
+using DotNetLocalDb.WebApp.DTOs;
 using DotNetLocalDb.WebApp.Entities;
 
 namespace DotNetLocalDb.WebApp.Interfaces;

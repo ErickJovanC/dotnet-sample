@@ -1,7 +1,7 @@
 using DotNetLocalDb.WebApp.Data;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
-using DotNetLocalDb.WebApp.Models;
+using DotNetLocalDb.WebApp.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -27,13 +27,16 @@ public class RestrictionService : IRestrictionService
         context.Restriction.Add(restriction);
         context.SaveChanges();
 
-        RestrictionEntity restrictionEntity = new ()
-        {
-            RestrictionId = restriction.RestrictionId,
-            EntityId = restrictionDTO.EntityId,
-        };
+        List<RestrictionEntity> entities = new List<RestrictionEntity>();
 
-        context.RestrictionEntity.Add(restrictionEntity);
+        foreach (int entityId in restrictionDTO.EntitiesIds) {
+            entities.Add(new RestrictionEntity {
+                RestrictionId = restriction.RestrictionId,
+                EntityId = entityId,
+            });
+        }
+        
+        context.RestrictionEntity.AddRange(entities);
         context.SaveChanges();
     }
 

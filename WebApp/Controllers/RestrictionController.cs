@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
-using DotNetLocalDb.WebApp.Models;
+using DotNetLocalDb.WebApp.DTOs;
 using DotNetLocalDb.WebApp.Data;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/restriction")]
 [ApiController]
 public class RestrictionController : ControllerBase
 {
