@@ -9,4 +9,5 @@ public interface IRestrictionService
     public void CreateRestriction(RestrictionDTO restrictionDTO);
     public Restriction GetRestrictionById(int restrictionId);
     public void AddEntity(RestrictionEntityDTO restrictionEntityDTO);
+    public bool Validate(int[] entitiesIds);
 }

@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.DTOs;
-using DotNetLocalDb.WebApp.Data;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
@@ -11,12 +10,10 @@ namespace DotNetLocalDb.WebApp.Controllers;
 public class RestrictionController : ControllerBase
 {
     private readonly IRestrictionService restrictionService;
-    private readonly DataDbContext context;
 
     public RestrictionController(IRestrictionService restrictionService)
     {
         this.restrictionService = restrictionService;
-        this.context = context;
     }
 
     [HttpGet]
@@ -29,16 +26,6 @@ public class RestrictionController : ControllerBase
     [HttpPost]
     public ActionResult CreateRestriction([FromBody] RestrictionDTO restrictionDTO)
     {
-        // var existRestriction = context.Entity.Any(x => x.EntityId == restriction.EntityId);
-
-        // System.Console.WriteLine(existRestriction);
-
-        // if (!existRestriction)
-        // {
-        //     return BadRequest($"No existe ninguna Entidad con el ID: {restriction.EntityId}");
-        // }
-        // System.Console.WriteLine("Si existe la Restricción");
-
         restrictionService.CreateRestriction(restrictionDTO);
         return Ok();
     }
@@ -48,5 +35,12 @@ public class RestrictionController : ControllerBase
     {
         restrictionService.AddEntity(restrictionEntityDTO);
         return Ok();
+    }
+
+    [HttpPost("validate")]
+    public ActionResult validate([FromBody] int[] entitiesIds)
+    {
+        bool restrictions = restrictionService.Validate(entitiesIds);
+        return Ok(restrictions);
     }
 }

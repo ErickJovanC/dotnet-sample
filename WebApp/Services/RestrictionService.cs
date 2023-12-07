@@ -61,4 +61,31 @@ public class RestrictionService : IRestrictionService
         context.RestrictionEntity.Add(restrictionEntity);
         context.SaveChanges();
     }
+
+    public bool Validate(int[] entitiesIds)
+    {
+        List<RestrictionEntity> restrictionEntities = context.RestrictionEntity
+            .Include(re => re.Restriction)
+            .ToList();
+
+        var groupedRestrictions = restrictionEntities
+        .GroupBy(re => re.RestrictionId)
+        .ToList();
+
+        foreach (var group in groupedRestrictions) {
+            Console.WriteLine($"RestrictionId: {group.Key}");
+            foreach (RestrictionEntity restriction in group) {
+                Console.WriteLine($"EntityId: {restriction.EntityId}");
+            }
+
+            if (group.All(re => entitiesIds.Contains(re.EntityId))) {
+                System.Console.WriteLine("Se cumple la restriction");
+                return false;
+            } else {
+                System.Console.WriteLine("No se cumple");
+            }
+        }
+
+        return true;
+    }
 }
