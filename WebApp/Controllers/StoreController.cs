@@ -68,7 +68,7 @@ public class StoreController : ControllerBase
     [HttpPost("media")]
     public ActionResult GetStoreMedia([FromBody] int[] storeIdsArray)
     {
-        List<StoreMediaEntity> storeMedia = storeService.GetStoreMedia(storeIdsArray);
+        List<StoreMedia> storeMedia = storeService.GetStoreMedia(storeIdsArray);
         return Ok(storeMedia);
     }
 }

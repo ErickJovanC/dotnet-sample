@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DotNetLocalDb.WebApp.Entities;
 
 [Table("store_media", Schema = "stores")]
-public class StoreMediaEntity
+public class StoreMedia
 {
     [Key, Column("store_media_id")]
     public int StoreMediaId {get; set;}

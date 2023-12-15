@@ -1,6 +1,6 @@
 namespace DotNetLocalDb.WebApp.Models;
 
-public class StoreMedia
+public class StoreMediaDTO
 {
     public int StoreId {get; set;}
     public int MediaId {get; set;}

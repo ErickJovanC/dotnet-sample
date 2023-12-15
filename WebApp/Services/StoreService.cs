@@ -65,7 +65,7 @@ public class StoreService : IStoreService
         context.SaveChanges();
     }
 
-    public List<StoreMediaEntity> GetStoreMedia(int[] storeIdsArray)
+    public List<StoreMedia> GetStoreMedia(int[] storeIdsArray)
     {
         List<int> storeIds = storeIdsArray.ToList();
 

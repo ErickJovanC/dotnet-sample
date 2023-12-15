@@ -17,7 +17,7 @@ public class DataDbContext : DbContext
     public DbSet<RegionEntity> Region { get; set; }
     public DbSet<Restriction> Restriction { get; set; }
     public DbSet<RestrictionEntity> RestrictionEntity { get; set; }
-    public DbSet<StoreMediaEntity> StoreMedia { get; set; }
+    public DbSet<StoreMedia> StoreMedia { get; set; }
     public DbSet<Discount> Discount { get; set; }
     public DbSet<DiscountEntity> DiscountEntity { get; set; }
     public DbSet<DiscountValidation> DiscountValidation { get; set; }
