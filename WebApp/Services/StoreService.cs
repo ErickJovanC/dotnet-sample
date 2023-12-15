@@ -71,6 +71,7 @@ public class StoreService : IStoreService
 
         return context.StoreMedia
             .Where(sm => storeIds.Contains(sm.StoreId) && sm.IsAvailable == true)
+            .Include(sm => sm.Media)
             .ToList();
     }
 }

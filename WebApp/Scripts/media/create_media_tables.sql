@@ -14,6 +14,7 @@ CREATE TABLE [media].[media] (
     ,[cost]             DECIMAL(10, 2)  NOT NULL
     ,[price]            DECIMAL(10, 2)  NOT NULL
     ,[minimum_units]    INT             NOT NULL
+    ,[is_by_blocks]     BIT             NOT NULL DEFAULT(0)
     ,[is_countable]     BIT             NOT NULL
     ,[is_active]        BIT             NOT NULL DEFAULT(1)
     ,CONSTRAINT [pk_media] PRIMARY KEY CLUSTERED ( [media_id] ASC )

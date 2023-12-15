@@ -18,11 +18,14 @@ public class StoreMedia
     [Column("qty")]
     public int Qty {get; set;}
 
+    [Column("minimum_units")]
+    public int MinimumUnits {get; set;}
+
     [Column("is_by_blocks")]
     public bool IsByBlocks {get; set;}
     
     [Column("is_available")]
     public bool IsAvailable {get; set;}
     // public List<StoreEntity> Stores {get; set;}
-    // public List<MediaEntity> Media {get; set;}
+    public MediaEntity Media {get; set;}
 }
