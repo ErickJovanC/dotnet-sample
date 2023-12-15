@@ -2,6 +2,7 @@ using DotNetLocalDb.WebApp.Data;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNetLocalDb.WebApp.Services;
 
@@ -64,12 +65,12 @@ public class StoreService : IStoreService
         context.SaveChanges();
     }
 
-    // public List<StoreEntity> GetStoresByMediaIds(int[] storeMediaIds)
-    // {
-    //     return context.Store.Where(
-    //         store => StoreMediaEntity.Stores.Any(
-    //             sm => sm.Media.Any(media => storeMediaIds.Contains(media.MediaId))
-    //         )
-    //     ).ToList();
-    // }
+    public List<StoreMediaEntity> GetStoreMedia(int[] storeIdsArray)
+    {
+        List<int> storeIds = storeIdsArray.ToList();
+
+        return context.StoreMedia
+            .Where(sm => storeIds.Contains(sm.StoreId) && sm.IsAvailable == true)
+            .ToList();
+    }
 }

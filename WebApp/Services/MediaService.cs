@@ -24,6 +24,7 @@ public class MediaService : IMediaService
             Cost = media.Cost,
             Price = media.Price,
             MinimumUnits = media.MinimumUnits,
+            // IsByBlocks = media.IsByBlocks,
             IsCountable = media.IsCountable,
             IsActive = media.IsActive,
         };
@@ -58,6 +59,7 @@ public class MediaService : IMediaService
         mediaEntity.Cost = media.Cost;
         mediaEntity.Price = media.Price;
         mediaEntity.MinimumUnits = media.MinimumUnits;
+        mediaEntity.IsByBlocks = media.IsByBlocks;
         mediaEntity.IsCountable = media.IsCountable;
         mediaEntity.IsActive = media.IsActive;
         context.Update(mediaEntity);

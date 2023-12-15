@@ -11,4 +11,5 @@ public interface IStoreService
     StoreEntity GetStoreEntityById(int stateId);
     List<StoreEntity> GetAllStores();
     List<StoreFormat> GetAllFormats();
+    public List<StoreMediaEntity> GetStoreMedia(int[] storeIdsArray);
 }

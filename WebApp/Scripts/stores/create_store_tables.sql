@@ -38,6 +38,8 @@ CREATE TABLE [stores].[store_media] (
     , [store_id]        INT     NOT NULL
     , [media_id]        INT     NOT NULL
     , [qty]             INT     NOT NULL
+    ,[minimum_units]    INT     NOT NULL    DEFAULT(0)
+    ,[is_by_blocks]     BIT     NOT NULL    DEFAULT(0)
     , [is_available]    BIT     NOT NULL
     ,CONSTRAINT [pk_store_media] PRIMARY KEY CLUSTERED ( [store_media_id] ASC )
 );

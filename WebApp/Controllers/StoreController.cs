@@ -65,15 +65,10 @@ public class StoreController : ControllerBase
         return Ok();
     }
 
-    // [HttpPost, Route("media")]
-    // public ActionResult GetStoreByMediaIds(int[] mediaIds)
-    // {
-    //     if (mediaIds == null || mediaIds.Length == 0)
-    //     {
-    //         return BadRequest("Debe proporcionar al menos un ID de MediaStore");
-    //     }
-
-    //     List<StoreEntity> media = storeService.GetStoresByMediaIds(mediaIds);
-    //     return Ok(media);
-    // }
+    [HttpPost("media")]
+    public ActionResult GetStoreMedia([FromBody] int[] storeIdsArray)
+    {
+        List<StoreMediaEntity> storeMedia = storeService.GetStoreMedia(storeIdsArray);
+        return Ok(storeMedia);
+    }
 }

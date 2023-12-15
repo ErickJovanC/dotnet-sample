@@ -36,7 +36,7 @@ public class DataDbContext : DbContext
         // modelBuilder.Entity<MediaEntity>().ToTable("media", schema: "media");
         modelBuilder.Entity<StateEntity>().ToTable("state", schema: "states");
         modelBuilder.Entity<StoreEntity>().ToTable("store", schema: "stores");
-        modelBuilder.Entity<StoreMediaEntity>().ToTable("store_media", schema: "stores");
+        // modelBuilder.Entity<StoreMediaEntity>().ToTable("store_media", schema: "stores");
 
         modelBuilder.Entity<RestrictionEntity>()
             .HasKey(re => new { re.EntityId, re.RestrictionId });

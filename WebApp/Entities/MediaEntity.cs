@@ -28,6 +28,9 @@ public class MediaEntity
     [Column("minimum_units")]
     public int MinimumUnits {get; set;}
 
+    [Column("is_by_blocks")]
+    public bool IsByBlocks {get; set;}
+
     [Column("is_countable")]
     public bool IsCountable {get; set;}
 

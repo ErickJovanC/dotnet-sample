@@ -8,6 +8,7 @@ public class Media
     public decimal Cost {get; set;}
     public decimal Price {get; set;}
     public int MinimumUnits {get; set;}
+    public bool IsByBlocks {get; set;}
     public bool IsCountable {get; set;}
     public bool IsActive {get; set;}
 }
