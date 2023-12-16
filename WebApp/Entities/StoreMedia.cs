@@ -26,6 +26,6 @@ public class StoreMedia
     
     [Column("is_available")]
     public bool IsAvailable {get; set;}
-    // public List<StoreEntity> Stores {get; set;}
+    public StoreEntity Store {get; set;}
     public MediaEntity Media {get; set;}
 }
