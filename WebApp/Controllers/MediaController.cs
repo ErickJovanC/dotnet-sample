@@ -2,10 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.Models;
+using DotNetLocalDb.WebApp.Requests;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/media")]
 [ApiController]
 public class MediaController : ControllerBase
 {
@@ -21,6 +22,13 @@ public class MediaController : ControllerBase
     {
         List<MediaEntity> media = mediaService.GetAllMedia();
         return Ok(media);
+    }
+
+    [HttpPost("store")]
+    public ActionResult GetMediaByStoreIds([FromBody] MediaByStore mediaByStore)
+    {
+        var data = mediaService.GetMediaAvailablesInStores(mediaByStore.StoreIds);
+        return Ok(data);
     }
 
     [HttpPost]

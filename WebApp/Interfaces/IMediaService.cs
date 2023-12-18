@@ -10,4 +10,5 @@ public interface IMediaService
     void DeleteMedia(int mediaId);
     MediaEntity GetMediaEntityById(int mediaId);
     List<MediaEntity> GetAllMedia();
+    public List<MediaEntity> GetMediaAvailablesInStores(int[] storeIds);
 }

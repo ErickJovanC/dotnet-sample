@@ -94,19 +94,4 @@ public class StoreService : IStoreService
 
         return storeMediaList;
     }
-
-    // public List<Media> GetMediaAvailablesInStores(int[] storeIdsArray)
-    // {
-    //     List<int> storeIds = storeIdsArray.ToList();
-
-    //     var storeMediaAvaibles = context.StoreMedia
-    //         .Where(sma => storeIds.Contains(sma.StoreId))
-    //         .Select(sma => sma.MediaId);
-
-    //     List<Media> media = context.Media
-    //         .Where(m => storeMediaAvaibles.Contains(m.MediaId))
-    //         .ToList();
-
-    //     return media;
-    // }
 }
