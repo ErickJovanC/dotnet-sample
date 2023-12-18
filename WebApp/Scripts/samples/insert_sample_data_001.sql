@@ -62,6 +62,7 @@ BEGIN
         [media_id],
         [qty],
         [minimum_units],
+        [price],
         [is_by_blocks],
         [is_available]
     )
@@ -70,6 +71,7 @@ BEGIN
         ROUND(RAND() * 49 , 0) + 157,
         ROUND(RAND() * 100, 0),
         ROUND(RAND() * 20, 0),
+        RAND() * 100,
         ROUND(RAND() * 1, 0),
         ROUND(RAND() * 1, 0)
     );

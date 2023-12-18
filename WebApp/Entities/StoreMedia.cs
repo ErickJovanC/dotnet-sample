@@ -19,7 +19,7 @@ public class StoreMedia
     public int Qty {get; set;}
 
     [Column("price")]
-    public int Price {get; set;}
+    public decimal Price {get; set;}
 
     [Column("minimum_units")]
     public int MinimumUnits {get; set;}

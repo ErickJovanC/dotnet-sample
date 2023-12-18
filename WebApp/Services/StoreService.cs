@@ -80,9 +80,11 @@ public class StoreService : IStoreService
         foreach (StoreMedia item in storeMedia)
         {
             storeMediaList.Add(new StoreMediaDTO{
+                StoreMediaId = item.StoreMediaId,
                 StoreId = item.StoreId,
                 StoreName = item.Store.Name,
                 MediaId = item.MediaId,
+                MediaName = item.Media.Name,
                 Qty = item.Qty,
                 MinimumUnits = item.MinimumUnits,
                 IsByBlock = item.IsByBlocks,

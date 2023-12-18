@@ -2,6 +2,7 @@ namespace DotNetLocalDb.WebApp.Models;
 
 public class StoreMediaDTO
 {
+    public int StoreMediaId {get; set;}
     public int StoreId {get; set;}
     public string StoreName {get; set;}
     public int MediaId {get; set;}
