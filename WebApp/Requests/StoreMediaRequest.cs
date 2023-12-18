@@ -4,7 +4,7 @@ namespace DotNetLocalDb.WebApp.Requests;
 public class StoreMediaRequest
 {
     [Required]
-    public int[] StoreIdsArray { get; set; }
+    public int[] StoreIds { get; set; }
     [Required]
-    public int[] MediaIdsArray { get; set; }
+    public int[] MediaIds { get; set; }
 }

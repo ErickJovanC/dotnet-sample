@@ -69,7 +69,7 @@ public class StoreController : ControllerBase
     [HttpPost("media")]
     public ActionResult GetStoreMedia(StoreMediaRequest request)
     {
-        List<StoreMediaDTO> storeMedia = storeService.GetStoreMedia(request.StoreIdsArray);
+        List<StoreMediaDTO> storeMedia = storeService.GetStoreMedia(request.StoreIds, request.MediaIds);
         return Ok(storeMedia);
     }
 }
