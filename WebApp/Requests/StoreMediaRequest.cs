@@ -7,4 +7,7 @@ public class StoreMediaRequest
     public int[] StoreIds { get; set; }
     [Required]
     public int[] MediaIds { get; set; }
+
+    public DateTime DateStart {get; set;}
+    public DateTime DateEnd {get; set;}
 }

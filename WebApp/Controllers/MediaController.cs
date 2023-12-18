@@ -40,12 +40,12 @@ public class MediaController : ControllerBase
 
     [HttpGet]
     [Route("{id}")]
-    public ActionResult GetMedia(/* [FromQuery] */ int id)
+    public ActionResult GetMedia(int id)
     {
         MediaEntity media = mediaService.GetMediaEntityById(id);
 
         if (media == null) {
-            return NotFound($"There's no a Media whit ID {id}");
+            return NotFound($"There's no a Media with ID {id}");
         }
 
         return Ok(media);
