@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.Models;
+using DotNetLocalDb.WebApp.Requests;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
@@ -66,9 +67,9 @@ public class StoreController : ControllerBase
     }
 
     [HttpPost("media")]
-    public ActionResult GetStoreMedia([FromBody] int[] storeIdsArray)
+    public ActionResult GetStoreMedia(StoreMediaRequest request)
     {
-        List<StoreMediaDTO> storeMedia = storeService.GetStoreMedia(storeIdsArray);
+        List<StoreMediaDTO> storeMedia = storeService.GetStoreMedia(request.StoreIdsArray);
         return Ok(storeMedia);
     }
 }
