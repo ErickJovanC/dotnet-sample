@@ -9,14 +9,17 @@ public class StoreMedia
     [Key, Column("store_media_id")]
     public int StoreMediaId {get; set;}
 
-    [Column("store_id")]
+    [Column("store_id"), Required]
     public int StoreId {get; set;}
 
-    [Column("media_id")]
+    [Column("media_id"), Required]
     public int MediaId {get; set;}
 
     [Column("qty")]
     public int Qty {get; set;}
+
+    [Column("price")]
+    public int Price {get; set;}
 
     [Column("minimum_units")]
     public int MinimumUnits {get; set;}
