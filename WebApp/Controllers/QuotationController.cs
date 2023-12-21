@@ -28,4 +28,11 @@ public class QuotationController : ControllerBase
         var data = quotationService.GetMediaAvailables(storesIds.StoreIds);
         return Ok(data);
     }
+
+    [HttpPost("get-store-media")]
+    public ActionResult GetStoreMedia(StoreMediaRequest request)
+    {
+        List<StoreMediaDTO> storeMedia = quotationService.GetStoreMedia(request.StoreIds, request.MediaIds);
+        return Ok(storeMedia);
+    }
 }

@@ -65,11 +65,4 @@ public class StoreController : ControllerBase
         storeService.UpdateStore(store, id);
         return Ok();
     }
-
-    [HttpPost("media")]
-    public ActionResult GetStoreMedia(StoreMediaRequest request)
-    {
-        List<StoreMediaDTO> storeMedia = storeService.GetStoreMedia(request.StoreIds, request.MediaIds);
-        return Ok(storeMedia);
-    }
 }

@@ -64,34 +64,4 @@ public class StoreService : IStoreService
         context.Update(storeEntity);
         context.SaveChanges();
     }
-
-    public List<StoreMediaDTO> GetStoreMedia(int[] storeIds, int[] mediaIds)
-    {
-        List<StoreMedia> storeMedia = context.StoreMedia
-            .Where(sm => storeIds.Contains(sm.StoreId)
-                && mediaIds.Contains(sm.MediaId)
-                && sm.IsAvailable == true)
-            .Include(sm => sm.Media)
-            .Include(sm => sm.Store)
-            .ToList();
-
-        List<StoreMediaDTO> storeMediaList = new List<StoreMediaDTO>();
-
-        foreach (StoreMedia item in storeMedia)
-        {
-            storeMediaList.Add(new StoreMediaDTO{
-                StoreMediaId = item.StoreMediaId,
-                StoreId = item.StoreId,
-                StoreName = item.Store.Name,
-                MediaId = item.MediaId,
-                MediaName = item.Media.Name,
-                Qty = item.Qty,
-                MinimumUnits = item.MinimumUnits,
-                IsByBlock = item.IsByBlocks,
-                Price = item.Price
-            });
-        }
-
-        return storeMediaList;
-    }
 }

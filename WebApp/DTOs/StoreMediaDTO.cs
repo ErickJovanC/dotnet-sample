@@ -1,4 +1,4 @@
-namespace DotNetLocalDb.WebApp.Models;
+namespace DotNetLocalDb.WebApp.DTOs;
 
 public class StoreMediaDTO
 {

@@ -7,4 +7,5 @@ public interface IQuotationService
 {
     public void CreateQuotation(QuotationDTO quotationDTO);
     public List<MediaEntity> GetMediaAvailables(int[] storeIds);
+    public List<StoreMediaDTO> GetStoreMedia(int[] storeIds, int[] mediaIds);
 }
