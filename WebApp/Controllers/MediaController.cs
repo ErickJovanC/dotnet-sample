@@ -24,13 +24,6 @@ public class MediaController : ControllerBase
         return Ok(media);
     }
 
-    [HttpPost("store")]
-    public ActionResult GetMediaByStoreIds([FromBody] MediaByStore mediaByStore)
-    {
-        var data = mediaService.GetMediaAvailablesInStores(mediaByStore.StoreIds);
-        return Ok(data);
-    }
-
     [HttpPost]
     public ActionResult CreateMedia([FromBody] Media media)
     {

@@ -31,4 +31,21 @@ public class QuotationService : IQuotationService
         context.Quotation.Add(quotation);
         context.SaveChanges();
     }
+
+    public List<MediaEntity> GetMediaStoresAvailables(int[] storeIds)
+    {
+        var storeMediaAvaibles = context.StoreMedia
+            .Where(sma => storeIds.Contains(sma.StoreId)
+                && sma.IsAvailable == true)
+            .Select(sma => sma.MediaId);
+
+        Console.WriteLine(storeMediaAvaibles);
+
+        List<MediaEntity> media = context.Media
+            .Where(m => storeMediaAvaibles.Contains(m.MediaId)
+                && m.IsActive == true)
+            .ToList();
+
+        return media;
+    }
 }
