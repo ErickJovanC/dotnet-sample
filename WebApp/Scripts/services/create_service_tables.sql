@@ -1,3 +1,14 @@
+CREATE TABLE [services].[service_items] (
+    [service_items_id]  INT       NOT NULL    identity(1,1)
+    , [store_id]        INT       NOT NULL
+    , [media_id]        INT       NOT NULL
+    , [quotation_id]    INT       NOT NULL
+    , [qty_selected]    INT       NOT NULL
+    , [date_start]      DATE      NOT NULL
+    , [date_end]        DATE      NOT NULL
+    ,CONSTRAINT [pk_service_items] PRIMARY KEY CLUSTERED ( [service_items_id] ASC )
+);
+
 CREATE TABLE [services].[service] (
     [service_id]        INT       NOT NULL    identity(1,1)
     , [store_id]        INT       NOT NULL
