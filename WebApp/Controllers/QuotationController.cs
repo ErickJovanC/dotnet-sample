@@ -10,10 +10,12 @@ namespace DotNetLocalDb.WebApp.Controllers;
 public class QuotationController : ControllerBase
 {
     private readonly IQuotationService quotationService;
+    private readonly IServiceService serviceService;
 
-    public QuotationController(IQuotationService quotationService)
+    public QuotationController(IQuotationService quotationService, IServiceService serviceService)
     {
         this.quotationService = quotationService;
+        this.serviceService = serviceService;
     }
 
     [HttpPost]
@@ -34,5 +36,12 @@ public class QuotationController : ControllerBase
     {
         List<StoreMediaDTO> storeMedia = quotationService.GetStoreMedia(request.StoreIds, request.MediaIds);
         return Ok(storeMedia);
+    }
+
+    [HttpPost("service")]
+    public ActionResult CreateService(ServiceDTO serviceDTO)
+    {
+        serviceService.CreateService(serviceDTO);
+        return Ok();
     }
 }

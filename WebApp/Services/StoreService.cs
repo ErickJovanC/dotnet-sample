@@ -2,7 +2,6 @@ using DotNetLocalDb.WebApp.Data;
 using DotNetLocalDb.WebApp.Entities;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace DotNetLocalDb.WebApp.Services;
 
