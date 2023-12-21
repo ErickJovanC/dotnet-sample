@@ -23,6 +23,7 @@ builder.Services.AddTransient<IBrandService, BrandService>();
 builder.Services.AddTransient<IRestrictionService, RestrictionService>();
 builder.Services.AddTransient<IDiscountService, DiscountService>();
 builder.Services.AddTransient<IQuotationService, QuotationService>();
+builder.Services.AddTransient<ITenantService, TenantService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
