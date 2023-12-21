@@ -6,5 +6,5 @@ namespace DotNetLocalDb.WebApp.Interfaces;
 public interface IQuotationService
 {
     public void CreateQuotation(QuotationDTO quotationDTO);
-    public List<MediaEntity> GetMediaStoresAvailables(int[] storeIds);
+    public List<MediaEntity> GetMediaAvailables(int[] storeIds);
 }

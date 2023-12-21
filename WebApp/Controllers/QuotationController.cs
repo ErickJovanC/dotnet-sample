@@ -22,10 +22,10 @@ public class QuotationController : ControllerBase
         quotationService.CreateQuotation(quatationDTO);
     }
 
-    [HttpPost("get-store-media")]
+    [HttpPost("get-media")]
     public ActionResult GetMediaByStoreIds([FromBody] StoreByIdRequest storesIds)
     {
-        var data = quotationService.GetMediaStoresAvailables(storesIds.StoreIds);
+        var data = quotationService.GetMediaAvailables(storesIds.StoreIds);
         return Ok(data);
     }
 }

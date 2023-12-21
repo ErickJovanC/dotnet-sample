@@ -32,7 +32,7 @@ public class QuotationService : IQuotationService
         context.SaveChanges();
     }
 
-    public List<MediaEntity> GetMediaStoresAvailables(int[] storeIds)
+    public List<MediaEntity> GetMediaAvailables(int[] storeIds)
     {
         var storeMediaAvaibles = context.StoreMedia
             .Where(sma => storeIds.Contains(sma.StoreId)
