@@ -26,7 +26,7 @@ public class Quotation
     public int BrandId {get; set;}
 
     [Column("discount")]
-    public float Discount {get; set;}
+    public decimal Discount {get; set;}
 
     [Required, Column("date_start")]
     public DateTime DateStart {get; set;}

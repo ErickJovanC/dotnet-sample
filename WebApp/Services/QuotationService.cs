@@ -15,6 +15,11 @@ public class QuotationService : IQuotationService
         this.context = context;
     }
 
+    public List<Quotation> GetAllQuotation()
+    {
+        return context.Quotation.ToList();
+    }
+
     public void CreateQuotation(QuotationDTO quotationDTO)
     {
         Quotation quotation = new()

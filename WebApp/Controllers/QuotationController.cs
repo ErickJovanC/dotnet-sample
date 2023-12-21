@@ -18,6 +18,12 @@ public class QuotationController : ControllerBase
         this.serviceService = serviceService;
     }
 
+    [HttpGet]
+    public ActionResult Index()
+    {
+        return Ok(quotationService.GetAllQuotation());
+    }
+
     [HttpPost]
     public void Create(QuotationDTO quatationDTO)
     {
