@@ -45,6 +45,9 @@ public class SqlSchemaBuilder
         CreateSchemaObject("requests");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.requests.create_request_tables.sql");
 
+        CreateSchemaObject("tenants");
+        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.tenants.create_tenant_tables.sql");
+
         CreateSchemaObject("quotations");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.quotations.create_quotation_table.sql");
 
@@ -59,9 +62,6 @@ public class SqlSchemaBuilder
 
         CreateSchemaObject("services");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.services.create_service_tables.sql");
-
-        CreateSchemaObject("tenants");
-        RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.tenants.create_tenant_tables.sql");
 
         CreateSchemaObject("advertisers");
         RunLocalStoredCommands("DotNetLocalDb.WebApp.Scripts.advertisers.create_advertiser_tables.sql");
@@ -88,10 +88,8 @@ public class SqlSchemaBuilder
         DropTableIfExists("advertisers", "advertiser");
         DropSchemaObjectIfExists("advertisers");
 
-        DropTableIfExists("tenants", "tenant");
-        DropSchemaObjectIfExists("tenants");
-
         DropTableIfExists("services", "service");
+        DropTableIfExists("services", "service_items");
         DropSchemaObjectIfExists("services");
 
         DropTableIfExists("restrictions", "restriction");
@@ -103,8 +101,11 @@ public class SqlSchemaBuilder
         DropSchemaObjectIfExists("quantities");
 
         DropTableIfExists("quotations", "quotation");
-        DropTableIfExists("quotations", "quotation_request");
+        DropTableIfExists("quotations", "quotation_status");
         DropSchemaObjectIfExists("quotations");
+
+        DropTableIfExists("tenants", "tenant");
+        DropSchemaObjectIfExists("tenants");
 
         DropTableIfExists("requests", "request_store");
         DropTableIfExists("requests", "request");

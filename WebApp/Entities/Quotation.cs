@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNetLocalDb.WebApp.Entities;
 
-[Table("quotations", Schema = "quotation")]
+[Table("quotation", Schema = "quotations")]
 
 public class Quotation
 {
@@ -25,11 +25,12 @@ public class Quotation
     [Column("brand_id")]
     public int BrandId {get; set;}
 
-    [Column("doscuount")]
+    [Column("discount")]
     public float Discount {get; set;}
-    [Column("date_start")]
-    public float DateStart {get; set;}
+
+    [Required, Column("date_start")]
+    public DateTime DateStart {get; set;}
     
-    [Column("date_end")]
-    public float DateEnd {get; set;}
+    [Required, Column("date_end")]
+    public DateTime DateEnd {get; set;}
 }

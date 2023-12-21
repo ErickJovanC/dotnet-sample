@@ -27,3 +27,12 @@ ALTER TABLE [quotations].[quotation] CHECK CONSTRAINT [fk_quotation_tenant];
 ALTER TABLE [quotations].[quotation] WITH CHECK ADD CONSTRAINT [fk_quotation_quotation_status] FOREIGN KEY([quotation_status_id])
 REFERENCES [quotations].[quotation_status] ([quotation_status_id]);
 ALTER TABLE [quotations].[quotation] CHECK CONSTRAINT [fk_quotation_quotation_status];
+
+INSERT INTO [quotations].[quotation_status] ([title], [description])
+VALUES ('Nueva', N'La cotización esta recien creada')
+, ('Creación', N'Se han agregado elementos pero aun no esta lista')
+, ('Validación', N'En proceso de validación')
+, ('Aceptada', N'Cotización aceptada')
+, ('En Ejecución', N'Cotización llevada a cabo')
+, ('Finalizada', N'Finalizo la cotización')
+;

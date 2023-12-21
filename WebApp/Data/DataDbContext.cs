@@ -21,6 +21,7 @@ public class DataDbContext : DbContext
     public DbSet<Discount> Discount { get; set; }
     public DbSet<DiscountEntity> DiscountEntity { get; set; }
     public DbSet<DiscountValidation> DiscountValidation { get; set; }
+    public DbSet<Quotation> Quotation { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
