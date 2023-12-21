@@ -6,14 +6,15 @@ CREATE TABLE [quotations].[quotation_status] (
 );
 
 CREATE TABLE [quotations].[quotation] (
-    [quotation_id]              INT     NOT NULL    identity(1,1)
-    , [tenant_id]               INT     NOT NULL
-    , [quotation_status_id]     INT     NOT NULL
-    , [agency_id]               INT         NULL
-    , [brand_id]                INT         NULL
-    , [discount]                DECIMAL     NULL
-    , [date_start]              DATE        NULL
-    , [date_end]                DATE        NULL
+    [quotation_id]              INT             NOT NULL    identity(1,1)
+    , [tenant_id]               INT             NOT NULL
+    , [quotation_status_id]     INT             NOT NULL
+    , [agency_id]               INT                 NULL
+    , [brand_id]                INT                 NULL
+    , [name]                    NVARCHAR(256)   NOT NULL
+    , [discount]                DECIMAL             NULL
+    , [date_start]              DATE                NULL
+    , [date_end]                DATE                NULL
     , CONSTRAINT [pk_quotation] PRIMARY KEY CLUSTERED ( [quotation_id] ASC )
 );
 
