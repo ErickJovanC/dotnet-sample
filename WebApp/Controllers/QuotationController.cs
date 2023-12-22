@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using DotNetLocalDb.WebApp.Interfaces;
 using DotNetLocalDb.WebApp.DTOs;
 using DotNetLocalDb.WebApp.Requests;
+using DotNetLocalDb.WebApp.Entities;
 
 namespace DotNetLocalDb.WebApp.Controllers;
 
@@ -22,6 +23,18 @@ public class QuotationController : ControllerBase
     public ActionResult Index()
     {
         return Ok(quotationService.GetAllQuotation());
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult GetQuotation(int id)
+    {
+        Quotation quotation = quotationService.GetQuotationById(id);
+
+        if (quotation == null) {
+            return NotFound($"There's no a Qoutation with ID {id}");
+        }
+
+        return Ok(quotation);
     }
 
     [HttpPost]

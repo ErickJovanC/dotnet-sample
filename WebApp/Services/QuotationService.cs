@@ -20,6 +20,11 @@ public class QuotationService : IQuotationService
         return context.Quotation.ToList();
     }
 
+    public Quotation GetQuotationById(int quotationId)
+    {
+        return context.Quotation.Find(quotationId);
+    }
+
     public void CreateQuotation(QuotationDTO quotationDTO)
     {
         Quotation quotation = new()
